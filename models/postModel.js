@@ -1,29 +1,24 @@
 // import mongoose
 const mongoose = require("mongoose");
 
-
 // route handler
-
 const postSchema = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true,
     },
-
-    body:{
+    body: {
         type: String,
-        required: true
+        required: true,
     },
-
-    likes:{
+    likes: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Like"
-    },
-
-    comments:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Comment"
-    }
+        ref: "Like",
+    }],
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment", // reference to the Comment model
+    }]
 });
 
 // export
